@@ -1,15 +1,24 @@
 package com.example.bookstore.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.bookstore.LoginActivity;
 import com.example.bookstore.R;
+import com.example.bookstore.RegisterActivity;
+import com.example.bookstore.databinding.FragmentExtendedBinding;
+import com.example.bookstore.databinding.ShowProfileBinding;
 
 public class ExtendedFragment extends Fragment {
+
+    FragmentExtendedBinding binding;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,6 +32,10 @@ public class ExtendedFragment extends Fragment {
     public ExtendedFragment() {
         // Required empty public constructor
     }
+
+
+
+
 
     /**
      * Use this factory method to create a new instance of
@@ -48,13 +61,35 @@ public class ExtendedFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+
         }
+
+//        binding.ShowProFile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //startActivity(new Intent(getActivity(),Show_Profile.class));
+//                //getActivity().finish();
+//                //getActivity();
+//                Intent i= new Intent(ExtendedFragment.this.getActivity(),Show_Profile.class);
+//                startActivity(i);
+//            }
+//        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_extended, container, false);
+        //return inflater.inflate(R.layout.fragment_extended, container, false);
+        binding = FragmentExtendedBinding.inflate(inflater,container,false);
+
+        binding.ShowProFile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        return binding.getRoot();
     }
 }
